@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34202.233
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RustedWarfareMod", "RustedWarfareMod\RustedWarfareMod.csproj", "{CC138257-FEF0-4444-B9D3-3C8D9279695D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CC138257-FEF0-4444-B9D3-3C8D9279695D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC138257-FEF0-4444-B9D3-3C8D9279695D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC138257-FEF0-4444-B9D3-3C8D9279695D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC138257-FEF0-4444-B9D3-3C8D9279695D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C0765A42-EA63-4748-BF9D-07DFFD12C1EE}
+	EndGlobalSection
+EndGlobal
