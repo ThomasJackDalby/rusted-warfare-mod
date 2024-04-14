@@ -56,7 +56,5 @@ public enum IniPropertyType
     String,
     Enum
 };
-public record IniPropertySchema(string Name, IniPropertyType Type, string[] Values);
-public record IniSectionSchema(string Name, IniPropertySchema[] Properties);
-public record IniFileSchema(IniSectionSchema[] Sections);
+
 

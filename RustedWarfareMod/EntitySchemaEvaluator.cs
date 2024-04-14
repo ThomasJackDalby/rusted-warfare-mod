@@ -1,10 +1,14 @@
-﻿namespace RustedWarfareMod;
+﻿using System.Data;
+using System.Diagnostics.Tracing;
+using static System.Collections.Specialized.BitVector32;
+
+namespace RustedWarfareMod;
 
 public class EntitySchemaEvaluator
 {
-    public IniFileSchema Evaluate(IEnumerable<IniFile> files)
+    public EntityFileSchema Evaluate(IEnumerable<IniFile> files)
     {
-        IniSectionSchema parseSectionSchema(string sectionName)
+        EntitySectionSchema parseSectionSchema(string sectionName)
         {
             IniSection[] sections = files
                     .SelectMany(file => file.Sections
@@ -13,7 +17,7 @@ public class EntitySchemaEvaluator
                             : section.Name == sectionName))
                     .ToArray();
 
-            IniPropertySchema parsePropertySchema(string propertyName)
+            EntityPropertySchema parsePropertySchema(string propertyName)
             {
                 string[] propertyValues = sections
                     .SelectMany(section => section.Properties.Where(property => property.Name == propertyName))
@@ -23,20 +27,22 @@ public class EntitySchemaEvaluator
 
                 IniPropertyType propertyType = parsePropertyType(propertyValues);
 
-                return new IniPropertySchema(propertyName, propertyType, propertyValues);
+                return new EntityPropertySchema(propertyName, propertyType, propertyValues);
             }
 
-            IniPropertySchema[] propertySchemas = sections
+            EntityPropertySchema[] propertySchemas = sections
                 .SelectMany(section => section.Properties.Select(property => property.Name))
                 .Distinct()
                 .Select(parsePropertySchema)
                 .OrderBy(property => property.Name)
                 .ToArray();
 
-            return new IniSectionSchema(sectionName, propertySchemas);
+
+            if (sectionName.StartsWith("#")) return new EntitySectionSchema(sectionName[1..], propertySchemas, true);
+            return new EntitySectionSchema(sectionName, propertySchemas, false);
         }
 
-        IniSectionSchema[] sectionSchemas = files
+        EntitySectionSchema[] sectionSchemas = files
                 .SelectMany(file => file.Sections.Select(section => section.Name))
                 .Select(parseSectionName)
                 .Distinct()
@@ -81,3 +87,6 @@ public class EntitySchemaEvaluator
     }
 }
 
+public record EntityPropertySchema(string Name, IniPropertyType Type, string[] Values);
+public record EntitySectionSchema(string Name, EntityPropertySchema[] Properties, bool IsTemplate);
+public record EntityFileSchema(EntitySectionSchema[] Sections);

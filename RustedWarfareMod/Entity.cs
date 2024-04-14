@@ -5,6 +5,9 @@ public class Entity
 	public ActionSection Action { get; } = new();
 	public AnimationSection Animation { get; } = new();
 	public ArmSection Arm { get; } = new();
+
+	public List<ArmSection> Arms { get; } = [];
+
 	public AttachmentSection Attachment { get; } = new();
 	public CanBuildSection CanBuild { get; } = new();
 	public DecalSection Decal { get; } = new();
@@ -343,12 +346,12 @@ public class HiddenActionSection
 	public bool HighPriorityQueue { get; set; }
 	public bool IsGuiBlinking { get; set; }
 	public bool IsLocked { get; set; }
-	public string Item(skipIfOverlapping=false, offsetRandomDir=360, offsetRandomX=25, offsetRandomY=25, addResources=battery { get; set; }
-	public string Item(skipIfOverlapping=false, offsetRandomDir=360, offsetRandomX=25, offsetRandomY=25, addResources=engine { get; set; }
-	public string Item(skipIfOverlapping=false, offsetRandomDir=360, offsetRandomX=25, offsetRandomY=25, addResources=piston { get; set; }
-	public string Item(skipIfOverlapping=false, offsetRandomDir=360, offsetRandomX=25, offsetRandomY=25, addResources=plug { get; set; }
-	public string Item(skipIfOverlapping=false, offsetRandomDir=360, offsetRandomX=25, offsetRandomY=25, addResources=rotor { get; set; }
-	public string Item(skipIfOverlapping=false, offsetRandomDir=360, offsetRandomX=25, offsetRandomY=25, addResources=tires { get; set; }
+	//public string Item(skipIfOverlapping=false, offsetRandomDir=360, offsetRandomX=25, offsetRandomY=25, addResources=battery { get; set; }
+	//public string Item(skipIfOverlapping=false, offsetRandomDir=360, offsetRandomX=25, offsetRandomY=25, addResources=engine { get; set; }
+	//public string Item(skipIfOverlapping=false, offsetRandomDir=360, offsetRandomX=25, offsetRandomY=25, addResources=piston { get; set; }
+	//public string Item(skipIfOverlapping=false, offsetRandomDir=360, offsetRandomX=25, offsetRandomY=25, addResources=plug { get; set; }
+	//public string Item(skipIfOverlapping=false, offsetRandomDir=360, offsetRandomX=25, offsetRandomY=25, addResources=rotor { get; set; }
+	//public string Item(skipIfOverlapping=false, offsetRandomDir=360, offsetRandomX=25, offsetRandomY=25, addResources=tires { get; set; }
 	public string PlayAnimation { get; set; }
 	public string PlaySoundAtUnit { get; set; }
 	public string PlaySoundGlobally { get; set; }
