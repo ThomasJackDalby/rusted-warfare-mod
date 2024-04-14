@@ -16,7 +16,7 @@
         {
             using StreamWriter writer = new(stream);
 
-
+            
 
             writer.WriteLine("namespace RustedWarfareMod;");
             writer.WriteLine("");
